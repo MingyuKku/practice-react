@@ -24,16 +24,21 @@
           color: 'yellow'
         }
       }
-      console.log('엥', action)
+      
       switch (action.type) {
         case 'CHANGE_COLOR':
           return {
-            ...state,
+            ...state, // 불변성을 지켜라
             color: action.color
           }
+        default: return state;
       }
     }
-    var store = Redux.createStore(reducer);
+    var store = Redux.createStore(
+      reducer,
+      window.__REDUX_DEVTOOLS_EXTENSION__ && 
+      window.__REDUX_DEVTOOLS_EXTENSION__()
+    );
     
     function red() {
       const state = store.getState();
