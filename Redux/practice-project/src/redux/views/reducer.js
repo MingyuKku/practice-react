@@ -5,7 +5,6 @@ const initState = {
 }
 
 const viewReducer = (state = initState, action) => {
-  console.log('먼데', action)
   switch (action.type) {
     case ADD_VIEW:
       return {
