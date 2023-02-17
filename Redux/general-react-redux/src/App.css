@@ -1,0 +1,12 @@
+#container,
+#container div div {
+  border: 5px solid yellowgreen;
+  margin: 10px;
+  padding: 5px;
+}
+#grid {
+  display: flex;
+}
+#grid > div {
+  flex: 1;
+}
