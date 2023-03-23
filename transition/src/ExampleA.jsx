@@ -11,7 +11,7 @@ const ExampleA = () => {
       <CSSTransition
         in={ isEnter }
         appear={ true }
-        timeout={ {appear: 300, enter: 300, exit: 300} }
+        timeout={ {appear: 2000, enter: 300, exit: 300} }
         classNames="myTrans"
       >
         

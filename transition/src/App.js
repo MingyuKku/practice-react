@@ -1,10 +1,29 @@
 import './App.css';
-import ExampleA from './ExampleA';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import routes from './routes';
+import Header from './components/Header';
 
 function App() {
+  const location = useLocation();
+
+  const getRoutes = (routes) => (
+    routes.map(route => (
+      <Route
+        key={route.path}
+        path={route.path}
+        element={route.element}
+      >
+        {route?.children?.length && getRoutes(route.children)}
+      </Route>
+    ))
+  )
+
   return (
     <div className="App">
-      <ExampleA />
+      <Header />
+      <Routes location={ location }>
+        { getRoutes(routes) }
+      </Routes>
     </div>
   );
 }
