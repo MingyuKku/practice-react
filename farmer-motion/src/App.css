@@ -1,0 +1,45 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.common-header,
+.product-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.App {
+}
+.hidden-wrap {
+  position: relative;
+  height: 100%;
+  /* overflow-x: hidden; */
+  /* min-height: 100%; */
+}
+.page {
+  position: absolute;
+  width: 100%;
+}
+.page_info {
+  position: relative;
+  width: 100%;
+  height: 1600px;
+}
+
+.home {
+  background: lawngreen;
+}
+.about {
+  background: orangered;
+}
+.products {
+  background: dodgerblue;
+}
+.contact {
+  background: darkcyan;
+}
+.footer {
+  background: orchid;
+}

@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+/* ============================= */
+/* 커스텀 라우터 애니메이션 및 CSS */
+/* ============================= */
+
+.fadeIn {
+  animation: 0.3s fadeIn forwards ease-out;
+}
+
+.fadeOut {
+  animation: 0.3s fadeOut forwards ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(20px, 0);
+    opacity: 0;
+  }
+}

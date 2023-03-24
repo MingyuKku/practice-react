@@ -9,9 +9,13 @@ const Admin = () => {
       <h1>어드민</h1>
       <Suspense fallback={ <span>로딩중...</span> }>
         <TransitionGroup className="admin-transition-group">
-          
+          <CSSTransition
+            key={ location.pathname }
+            classNames="myTrans"
+            timeout={ 500 }
+          >
             <Outlet />
-          
+          </CSSTransition>
         </TransitionGroup>
       </Suspense>
     </div>

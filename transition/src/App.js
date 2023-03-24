@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Routes location={ location }>
+      <Routes location={ location } key={ location } >
         { getRoutes(routes) }
       </Routes>
     </div>
