@@ -12,7 +12,8 @@ function App() {
   const dispatch = useThunkDispatch<ResultState>();
 
   React.useEffect(() => {
-    dispatch(fetch_result());
+    dispatch(fetch_result())
+    
   }, [dispatch])
   
   return (
