@@ -9,28 +9,30 @@ const App = () => {
     const INDEX_KEY: QueryKey = ['infinite-items'];
     const PER_PAGE = 20;
 
-    const { data: items, isFetching, fetchNextPage, fetchPreviousPage, hasNextPage, isFetchingNextPage, status } = useInfiniteQuery({
+    // https://test-persona-api.hiing.co/v1.10/rooms/1,2,0,15
+
+    const {
+        data: items,
+        isFetching,
+        fetchNextPage,
+        fetchPreviousPage,
+        hasNextPage,
+        isFetchingNextPage,
+        status,
+    } = useInfiniteQuery({
         queryKey: INDEX_KEY,
         queryFn: ({ pageParam }) => fetchItems(pageParam),
-        initialPageParam: 1, // 필수 (초기 페이지 매개변수)
-        getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => allPages.length + 1,
+        initialPageParam: 15, // 필수 (초기 페이지 매개변수)
+        getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
+            // console.log('lastPage 이게 지금 뭐여!', lastPage, lastPageParam)
+            // console.log('allPages 이게 지금 뭐여!', allPages, allPageParams)
+            const lastItem = lastPage.results[lastPage.results.length - 1];
+            const lastItemRegisteredAge = lastItem.registered?.age
+            console.log('넥스트 파람', lastItemRegisteredAge)
+            return lastItemRegisteredAge;
+        }
     })
 
-    
-    // const { data } = useQuery({
-    //     queryKey: INDEX_KEY,
-    //     queryFn: () => fetchItems(),
-    // })
-
-    console.log('뭔가여', items)
-    // React.useEffect(() => {
-    //     const test = async () => {
-    //         const res = await fetchItems();
-    //         console.log('하하', res)
-    //     }
-
-    //     test()
-    // }, [])
 
     if (status === 'pending') {
         return <p>로딩중이다!!!</p>
